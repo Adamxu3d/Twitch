@@ -15,5 +15,6 @@ services:
 
 
 # permanent storage of data.
+# testing for the git connection
 volumes:
   mysql-local:
