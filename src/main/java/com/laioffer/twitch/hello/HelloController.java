@@ -11,7 +11,7 @@ public class HelloController {
     @GetMapping("/hello")
     public Person sayHello(@RequestParam(required = false) String locale) {
         if (locale == null) {
-            locale = "zh_CN";
+            locale = "en-GB";
         }
 
         Faker faker = new Faker(new Locale(locale));
