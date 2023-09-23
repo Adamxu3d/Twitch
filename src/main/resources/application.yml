@@ -27,6 +27,15 @@ spring:
           twitch:
             token-uri: https://id.twitch.tv/oauth2/token
 
+  datasource:
+    # same as the port specified in docker
+    url: jdbc:mysql://${DATABASE_URL:localhost}:3306/twitch?createDatabaseIfNotExist=true
+    # the username
+    username: ${DATABASE_USERNAME:root}
+    password: ${DATABASE_PASSWORD:secret}
+    driver-class-name: com.mysql.cj.jdbc.Driver
+
+
 
 logging:
   level:
