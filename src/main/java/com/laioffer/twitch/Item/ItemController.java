@@ -17,6 +17,8 @@ public class ItemController {
     }
 
 
+    // this allows you to use search keyword in URL to look for games via game_id
+    // more method can be added in addition to game_id
     @GetMapping("/search")
     public TypeGroupedItemList search(@RequestParam("game_id") String gameId) {
         return itemService.getItems(gameId);
