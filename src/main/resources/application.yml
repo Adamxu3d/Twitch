@@ -36,6 +36,8 @@ spring:
     driver-class-name: com.mysql.cj.jdbc.Driver
   sql:
     init:
+      # always initialise the database when you launch, bad practice when app online
+      # alternative : never
       mode: always
       schema-locations : "classpath:database-init.sql"
 
@@ -43,3 +45,4 @@ logging:
   level:
     org.apache.coyote.http11.Http11InputBuffer: DEBUG # Incoming HTTP requests
     com.laioffer.twitch.external.TwitchApiClient: DEBUG
+    org.springframework.jdbc.core: DEBUG # SQL
