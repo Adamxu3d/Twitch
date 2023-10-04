@@ -3,7 +3,6 @@ package com.laioffer.twitch.recommendation;
 
 import com.laioffer.twitch.db.entity.UserEntity;
 import com.laioffer.twitch.model.TypeGroupedItemList;
-import com.laioffer.twitch.recommentation.RecommendationService;
 import com.laioffer.twitch.user.UserService;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.security.core.userdetails.User;

@@ -1,4 +1,4 @@
-package com.laioffer.twitch.recommentation;
+package com.laioffer.twitch.recommendation;
 
 import java.util.ArrayList;
 import java.util.HashSet;
