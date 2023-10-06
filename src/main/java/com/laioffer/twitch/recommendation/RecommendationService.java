@@ -35,6 +35,7 @@ public class RecommendationService {
 
 
 
+    // based on the videos that you have viewed, the system will recommend similar videos to you
     public TypeGroupedItemList recommendItems(UserEntity userEntity) {
         List<String> gameIds;
         Set<String> exclusions = new HashSet<>();
@@ -67,7 +68,7 @@ public class RecommendationService {
         return new TypeGroupedItemList(streams, videos, clips);
     }
 
-
+    // exclusion stands for the videos that you have already liked or viewed
     private List<ItemEntity> recommendStreams(List<String> gameIds, Set<String> exclusions) {
         List<Stream> streams = twitchService.getStreams(gameIds, PER_PAGE_ITEM_SIZE);
         List<ItemEntity> resultItems = new ArrayList<>();
