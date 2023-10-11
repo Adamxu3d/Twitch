@@ -13,6 +13,7 @@ import com.laioffer.twitch.external.model.Stream;
 import com.laioffer.twitch.external.model.Video;
 import com.laioffer.twitch.favorite.FavoriteService;
 import com.laioffer.twitch.model.TypeGroupedItemList;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Service;
 
 @Service
@@ -34,7 +35,9 @@ public class RecommendationService {
 
 
 
-
+    // note how the first time items are fetched very slowly, second time it is 100x the speed
+    // it has got an expiration time of 1 min
+    @Cacheable("recommend_items")
     // based on the videos that you have viewed, the system will recommend similar videos to you
     public TypeGroupedItemList recommendItems(UserEntity userEntity) {
         List<String> gameIds;

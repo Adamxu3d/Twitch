@@ -8,6 +8,7 @@ import com.laioffer.twitch.db.entity.ItemEntity;
 import com.laioffer.twitch.db.entity.UserEntity;
 import com.laioffer.twitch.model.DuplicateFavoriteException;
 import com.laioffer.twitch.model.TypeGroupedItemList;
+import org.springframework.cache.annotation.CacheEvict;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -30,7 +31,7 @@ public class FavoriteService {
         this.favoriteRecordRepository = favoriteRecordRepository;
     }
 
-
+    @CacheEvict(cacheNames = "recommend_items", key = "#user")
     @Transactional
     public void setFavoriteItem(UserEntity user, ItemEntity item) throws DuplicateFavoriteException {
         ItemEntity persistedItem = itemRepository.findByTwitchId(item.twitchId());
@@ -46,7 +47,7 @@ public class FavoriteService {
         favoriteRecordRepository.save(favoriteRecord);
     }
 
-
+    @CacheEvict(cacheNames = "recommend_items", key = "#user")
     public void unsetFavoriteItem(UserEntity user, String twitchId) {
         ItemEntity item = itemRepository.findByTwitchId(twitchId);
         if (item != null) {
