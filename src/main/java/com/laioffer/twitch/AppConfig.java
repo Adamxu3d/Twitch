@@ -36,6 +36,7 @@ public class AppConfig {
                                 .requestMatchers("/hello/**").permitAll()
                                 .requestMatchers(HttpMethod.POST, "/login", "/register", "/logout").permitAll()
                                 .requestMatchers(HttpMethod.GET, "/recommendation", "/game").permitAll()
+                                .requestMatchers(HttpMethod.GET, "/recommendation", "/search").permitAll()
                                 .anyRequest().authenticated()
                 )
                 .exceptionHandling()
